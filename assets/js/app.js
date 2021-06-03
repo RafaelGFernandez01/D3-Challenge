@@ -12,5 +12,24 @@ async function read_csv_file() {
 async function render() {
     const data = await read_csv_file();
 
-    console.log('data', data);
+    const svg = d3.select("#scatter")
+        .append("svg")
+        .attr("width", 250)
+        .attr("height", 250)
+
+    svg.selectAll("circle")
+        .data(data).enter()
+        .append("circle")
+        .attr("cx", (d) => d.poverty)
+        .attr("cy", (d) => d.healthcare)
+        .attr("r", () => 1)
+        .attr("fill", '#aaaaaa');
 }
+
+render()
+    .then(() => {
+        
+    })
+    .catch((error) => {
+        console.error('APP ERROR:', error);
+    });
