@@ -28,7 +28,7 @@ async function render() {
 
 render()
     .then(() => {
-        
+        console.log('rendered...:');
     })
     .catch((error) => {
         console.error('APP ERROR:', error);
