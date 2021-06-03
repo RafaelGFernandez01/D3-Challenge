@@ -3,7 +3,7 @@ console.log('hello!');
 
 function read_csv_file() {
     return new Promise((resolve, reject) => {
-        d3.csv("/assets/data/data.csv", (data) => {
+        d3.csv("assets/data/data.csv", (data) => {
             console.log(data);
             resolve(data);
         });
