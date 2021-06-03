@@ -1,11 +1,16 @@
 // @TODO: YOUR CODE HERE!
-console.log('hello!');
+var _data = null;
 
-function read_csv_file() {
-    return new Promise((resolve, reject) => {
-        d3.csv("https://raw.githubusercontent.com/RafaelGFernandez01/D3-Challenge/master/assets/data/data.csv", (data) => {
-            console.log(data);
-            resolve(data);
-        });
-    });
+async function read_csv_file() {
+    if (_data) return _data;
+
+    _data = await d3.csv("https://raw.githubusercontent.com/RafaelGFernandez01/D3-Challenge/master/assets/data/data.csv");
+
+    return _data;
+}
+
+async function render() {
+    const data = await read_csv_file();
+
+    console.log('data', data);
 }
