@@ -11,18 +11,20 @@ async function read_csv_file() {
 
 async function render() {
     const data = await read_csv_file();
+    const width = 500;
+    const height = height;
 
     const svg = d3.select("#scatter")
         .append("svg")
-        .attr("width", 250)
-        .attr("height", 250)
+        .attr("width", width)
+        .attr("height", height)
 
     svg.selectAll("circle")
         .data(data).enter()
         .append("circle")
-        .attr("cx", (d) => d.poverty)
-        .attr("cy", (d) => d.healthcare)
-        .attr("r", () => 1)
+        .attr("cx", (d) => d.poverty * (width / 100))
+        .attr("cy", (d) => d.healthcare * (height / 100))
+        .attr("r", () => (width / 100))
         .attr("fill", '#aaaaaa');
 }
 
