@@ -12,7 +12,7 @@ async function read_csv_file() {
 async function render() {
     const data = await read_csv_file();
     const width = 500;
-    const height = height;
+    const height = 500;
 
     const svg = d3.select("#scatter")
         .append("svg")
